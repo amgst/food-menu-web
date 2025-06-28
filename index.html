@@ -1,21 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MenuCraft - AI-Powered Digital Restaurant Experience</title>
+    <title>MenuCraft - Complete Digital Restaurant Solution</title>
     
-    <!-- Basic SEO -->
-    <meta name="description" content="Experience the future of dining with MenuCraft - AI-powered menu recommendations, voice ordering, and seamless digital restaurant experience.">
-    <meta name="keywords" content="restaurant app, AI menu, voice ordering, digital dining, food delivery">
-    <meta name="author" content="MenuCraft">
+    <meta name="description" content="Transform your restaurant with MenuCraft's complete digital platform. Customer ordering, admin dashboard, real-time notifications, and mobile apps.">
+    <meta name="keywords" content="restaurant management, digital ordering, admin dashboard, mobile app development">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="MenuCraft - AI-Powered Restaurant App">
-    <meta property="og:description" content="Revolutionary dining experience with AI recommendations and voice ordering">
-    <meta property="og:type" content="website">
-    
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,7 +23,6 @@
         }
     </script>
     
-    <!-- Custom CSS -->
     <style>
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -40,8 +32,19 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
         .float { animation: float 6s ease-in-out infinite; }
         .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        .pulse-animation { animation: pulse 3s ease-in-out infinite; }
+        .slide-in { animation: slideIn 0.6s ease-out; }
         
         .gradient-text {
             background: linear-gradient(135deg, #f97316, #ea580c, #dc2626);
@@ -50,43 +53,62 @@
             background-clip: text;
         }
         
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);
         }
         
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .mobile-hidden { display: none !important; }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tech-glow {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+        }
+        
+        .pricing-highlight {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            transform: scale(1.05);
+            border: 2px solid #fff;
         }
     </style>
 </head>
 <body class="bg-gray-50 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
                         <span class="text-white font-bold text-lg">🍽️</span>
                     </div>
                     <span class="text-2xl font-bold gradient-text">MenuCraft</span>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-orange-500 transition-colors">Features</a>
-                    <a href="#ai-powered" class="text-gray-700 hover:text-orange-500 transition-colors">AI Features</a>
-                    <a href="#demo" class="text-gray-700 hover:text-orange-500 transition-colors">Demo</a>
-                    <a href="#download" class="text-gray-700 hover:text-orange-500 transition-colors">Download</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-orange-500 transition-colors">Pricing</a>
+                    <a href="#features" class="text-gray-700 hover:text-orange-500 transition-all duration-300 font-medium">Features</a>
+                    <a href="#platform" class="text-gray-700 hover:text-orange-500 transition-all duration-300 font-medium">Platform</a>
+                    <a href="#demo" class="text-gray-700 hover:text-orange-500 transition-all duration-300 font-medium">Demo</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-orange-500 transition-all duration-300 font-medium">Pricing</a>
+                    <a href="#contact" class="text-gray-700 hover:text-orange-500 transition-all duration-300 font-medium">Contact</a>
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <button onclick="openDemo()" class="hidden sm:block bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
-                        Try Demo
+                    <button onclick="contactSales()" class="hidden sm:block bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold">
+                        Get Quote
                     </button>
-                    <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()">
                         <span class="text-gray-700 text-xl">☰</span>
                     </button>
                 </div>
@@ -94,15 +116,15 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden bg-white border-b border-gray-200 hidden">
+        <div id="mobileMenu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 hidden">
             <div class="p-4 space-y-3">
-                <a href="#features" class="block text-gray-700 hover:text-orange-500">Features</a>
-                <a href="#ai-powered" class="block text-gray-700 hover:text-orange-500">AI Features</a>
-                <a href="#demo" class="block text-gray-700 hover:text-orange-500">Demo</a>
-                <a href="#download" class="block text-gray-700 hover:text-orange-500">Download</a>
-                <a href="#pricing" class="block text-gray-700 hover:text-orange-500">Pricing</a>
-                <button onclick="openDemo()" class="w-full bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
-                    Try Demo
+                <a href="#features" class="block text-gray-700 hover:text-orange-500 py-2">Features</a>
+                <a href="#platform" class="block text-gray-700 hover:text-orange-500 py-2">Platform</a>
+                <a href="#demo" class="block text-gray-700 hover:text-orange-500 py-2">Demo</a>
+                <a href="#pricing" class="block text-gray-700 hover:text-orange-500 py-2">Pricing</a>
+                <a href="#contact" class="block text-gray-700 hover:text-orange-500 py-2">Contact</a>
+                <button onclick="contactSales()" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-3 rounded-xl mt-4 font-semibold">
+                    Get Quote
                 </button>
             </div>
         </div>
@@ -115,88 +137,74 @@
                 <!-- Left Column -->
                 <div class="fade-in-up">
                     <div class="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        🚀 Now with AI-Powered Features
+                        🚀 Complete Restaurant Management System
                     </div>
                     
                     <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        The Future of 
+                        Complete Digital 
                         <span class="gradient-text">Restaurant</span>
-                        Experience
+                        Solution
                     </h1>
                     
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        Revolutionary dining platform powered by AI. Voice ordering, smart recommendations, 
-                        and seamless digital experience for both customers and restaurants.
+                        Transform your restaurant with our comprehensive digital platform. Customer ordering, admin dashboard, real-time notifications, and mobile apps - all powered by Firebase backend.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <button onclick="openDemo()" class="bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition-all hover-lift font-semibold">
-                            🎯 Try Live Demo
+                    <div class="space-x-4">
+                        <button onclick="openDemo()" class="bg-orange-500 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-orange-600 transition-colors">
+                            🎯 Get Started Today
                         </button>
-                        <button onclick="playVideo()" class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl hover:border-orange-500 hover:text-orange-500 transition-all hover-lift font-semibold">
-                            ▶️ Watch Demo
+                        <button onclick="contactSales()" class="bg-white text-orange-500 border-2 border-orange-500 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-orange-50 transition-colors">
+                            📞 Free Consultation
                         </button>
                     </div>
                     
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-8 mobile-hidden">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-orange-500">98%</div>
-                            <div class="text-gray-600 text-sm">Customer Satisfaction</div>
+                    <div class="mt-8 flex items-center space-x-6 text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✓</span>
+                            Complete Solution
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-orange-500">3x</div>
-                            <div class="text-gray-600 text-sm">Faster Ordering</div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✓</span>
+                            Real-time Updates
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-orange-500">24/7</div>
-                            <div class="text-gray-600 text-sm">AI Assistant</div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✓</span>
+                            Mobile Apps
                         </div>
                     </div>
                 </div>
                 
-                <!-- Right Column -->
-                <div class="relative">
+                <!-- Right Column - Visual -->
+                <div class="relative mobile-hidden">
                     <div class="float">
-                        <div class="relative">
-                            <!-- Phone Mockup -->
-                            <div class="w-80 h-96 mx-auto bg-gray-900 rounded-3xl p-2 shadow-2xl">
-                                <div class="w-full h-full bg-white rounded-2xl overflow-hidden">
-                                    <div class="bg-gradient-to-r from-orange-500 to-red-500 h-24 flex items-center justify-center">
-                                        <span class="text-white font-bold text-lg">🍽️ MenuCraft Demo</span>
-                                    </div>
-                                    <div class="p-4 space-y-3">
-                                        <div class="bg-gray-100 h-16 rounded-lg flex items-center px-3">
-                                            <div class="w-12 h-12 bg-orange-200 rounded-lg mr-3 flex items-center justify-center">
-                                                <span>🥘</span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <div class="bg-gray-300 h-3 w-24 rounded mb-2"></div>
-                                                <div class="bg-gray-200 h-2 w-16 rounded"></div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-gray-100 h-16 rounded-lg flex items-center px-3">
-                                            <div class="w-12 h-12 bg-red-200 rounded-lg mr-3 flex items-center justify-center">
-                                                <span>🍖</span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <div class="bg-gray-300 h-3 w-32 rounded mb-2"></div>
-                                                <div class="bg-gray-200 h-2 w-20 rounded"></div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-gradient-to-r from-orange-400 to-red-400 h-12 rounded-lg flex items-center justify-center">
-                                            <span class="text-white font-medium">🎤 Voice Order</span>
-                                        </div>
-                                    </div>
+                        <div class="bg-white rounded-2xl shadow-2xl p-8 mx-auto max-w-md">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                                    <span class="text-white text-xl">📱</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900">MenuCraft Platform</h3>
+                                    <p class="text-gray-500 text-sm">All-in-one solution</p>
                                 </div>
                             </div>
-                            
-                            <!-- Floating AI Elements -->
-                            <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                                <span class="text-white font-bold">🤖</span>
-                            </div>
-                            <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center shadow-lg">
-                                <span class="text-white">⚡</span>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Customer Web App</span>
+                                    <span class="text-green-500">✓</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Admin Dashboard</span>
+                                    <span class="text-green-500">✓</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Mobile Admin App</span>
+                                    <span class="text-green-500">✓</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Real-time Backend</span>
+                                    <span class="text-green-500">✓</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -205,241 +213,283 @@
         </div>
     </section>
 
-    <!-- AI Features Section -->
-    <section id="ai-powered" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                    🤖 Powered by Artificial Intelligence
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    AI That Revolutionizes
-                    <span class="gradient-text">Dining</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Experience the future with our cutting-edge AI features that make ordering food as easy as having a conversation.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Voice Ordering -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">🎤</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Voice Ordering</h3>
-                    <p class="text-gray-600 mb-6">
-                        Simply speak your order naturally. "I want something spicy for 4 people under $60" - our AI understands and suggests perfectly.
-                    </p>
-                    <div class="bg-gray-50 p-4 rounded-xl">
-                        <div class="text-sm text-gray-500 mb-2">Try saying:</div>
-                        <div class="text-gray-800 font-medium">"Order me Afghan food for my family"</div>
-                    </div>
-                </div>
-
-                <!-- Smart Recommendations -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">🎯</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Recommendations</h3>
-                    <p class="text-gray-600 mb-6">
-                        AI analyzes your preferences, time of day, weather, and past orders to suggest dishes you'll absolutely love.
-                    </p>
-                    <div class="bg-gray-50 p-4 rounded-xl">
-                        <div class="text-sm text-gray-500 mb-2">AI suggests:</div>
-                        <div class="text-gray-800 font-medium">"Based on your taste, try Qabuli Palaw!"</div>
-                    </div>
-                </div>
-
-                <!-- Intelligent Descriptions -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">✨</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI Descriptions</h3>
-                    <p class="text-gray-600 mb-6">
-                        Every dish gets mouth-watering, culturally-rich descriptions that make you want to order immediately.
-                    </p>
-                    <div class="bg-gray-50 p-4 rounded-xl">
-                        <div class="text-sm text-gray-500 mb-2">AI writes:</div>
-                        <div class="text-gray-800 font-medium">"Royal feast capturing Afghan hospitality..."</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Features Section -->
+    <!-- Features Section -->
     <section id="features" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Everything You Need for
-                    <span class="gradient-text">Modern Dining</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    From customers to restaurant owners, MenuCraft provides a complete digital dining ecosystem.
-                </p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Complete Restaurant Platform</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to run a modern restaurant - from customer ordering to admin management</p>
             </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Customer Features -->
-                <div>
-                    <h3 class="text-3xl font-bold text-gray-900 mb-8">For Customers</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-orange-500 text-xl">📱</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">PWA Experience</h4>
-                                <p class="text-gray-600">Install on any device, works offline, feels like a native app with push notifications.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-blue-500 text-xl">🛒</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Smart Cart</h4>
-                                <p class="text-gray-600">Persistent cart, quantity management, real-time total calculation with tax and delivery.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-green-500 text-xl">📞</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">OTP Verification</h4>
-                                <p class="text-gray-600">Secure phone verification, customer data management, order history tracking.</p>
-                            </div>
-                        </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Customer Web Platform -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">🌐</span>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Customer Web App</h3>
+                    <p class="text-gray-600 mb-6">Beautiful ordering interface for customers to browse menu and place orders</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Menu browsing</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Shopping cart</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Order placement</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Real-time updates</li>
+                    </ul>
                 </div>
                 
-                <!-- Restaurant Features -->
-                <div>
-                    <h3 class="text-3xl font-bold text-gray-900 mb-8">For Restaurants</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-purple-500 text-xl">⚡</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Real-time Orders</h4>
-                                <p class="text-gray-600">Instant notifications, order management, status updates with kitchen integration.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-red-500 text-xl">🎨</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Dynamic Menu</h4>
-                                <p class="text-gray-600">Easy menu management, categories, pricing, stock control, and beautiful presentations.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-yellow-500 text-xl">📊</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Analytics Dashboard</h4>
-                                <p class="text-gray-600">Sales insights, popular items, customer analytics, and AI-powered business recommendations.</p>
-                            </div>
-                        </div>
+                <!-- Admin Dashboard -->
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-orange-500 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">📊</span>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Admin Dashboard</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive web dashboard for restaurant management</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Order management</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Menu editing</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Real-time notifications</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Analytics & reports</li>
+                    </ul>
+                </div>
+                
+                <!-- Mobile Admin App -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl">📱</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Mobile Admin App</h3>
+                    <p class="text-gray-600 mb-6">React Native app for restaurant staff to manage orders on the go</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Order notifications</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Status updates</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Quick actions</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Offline support</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section id="demo" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+
+
+
+<!-- Screenshots Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                See It In <span class="gradient-text">Action</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Real screenshots from our live platform - experience the complete restaurant ecosystem
+            </p>
+        </div>
+        
+        <!-- All Screenshots Carousel -->
+        <div class="relative overflow-hidden">
+            <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="mainCarousel">
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="admin1.png" alt="Admin Dashboard - Orders Management" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="admin2.png" alt="Admin Dashboard - Menu Management" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="admin3.png" alt="Admin Dashboard - Analytics" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="front1.png" alt="Customer Interface - Menu Browse" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="front2.png" alt="Customer Interface - Food Ordering" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="front3.png" alt="Customer Interface - Cart & Checkout" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+                <div class="carousel-slide flex-shrink-0 w-full">
+                    <img src="front4.png" alt="Customer Interface - Order Confirmation" class="w-full h-auto max-w-none" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300 z-10" onclick="prevSlide()">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300 z-10" onclick="nextSlide()">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Dots Navigation -->
+        <div class="flex justify-center mt-8 space-x-3">
+            <button class="carousel-dot w-3 h-3 bg-orange-500 rounded-full transition-all hover:scale-125" data-slide="0"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="1"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="2"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="3"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="4"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="5"></button>
+            <button class="carousel-dot w-3 h-3 bg-gray-300 rounded-full transition-all hover:scale-125" data-slide="6"></button>
+        </div>
+        
+
+    </div>
+</section>
+
+<style>
+.gradient-text {
+    background: linear-gradient(135deg, #f97316, #ea580c, #dc2626);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-dot {
+    cursor: pointer;
+}
+</style>
+
+<script>
+let currentSlide = 0;
+const totalSlides = 7;
+const track = document.getElementById('mainCarousel');
+const dots = document.querySelectorAll('.carousel-dot');
+
+function updateCarousel() {
+    const translateX = -currentSlide * 100;
+    track.style.transform = `translateX(${translateX}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.remove('bg-gray-300');
+            dot.classList.add('bg-orange-500');
+        } else {
+            dot.classList.remove('bg-orange-500');
+            dot.classList.add('bg-gray-300');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+}
+
+// Dot navigation
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+});
+
+// Auto-play
+let autoPlayTimer = setInterval(nextSlide, 4000);
+
+// Pause on hover
+track.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+track.addEventListener('mouseleave', () => {
+    autoPlayTimer = setInterval(nextSlide, 4000);
+});
+
+// Touch/swipe support for mobile
+let startX = 0;
+let isDragging = false;
+
+track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+});
+
+track.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+});
+
+track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    
+    if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            nextSlide();
+        } else {
+            prevSlide();
+        }
+    }
+    
+    isDragging = false;
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- Platform Section -->
+    <section id="platform" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    See It In
-                    <span class="gradient-text">Action</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Experience MenuCraft with our live demo featuring Pameer Restaurant's authentic Afghan cuisine.
-                </p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Upcoming Enhancements</h2>
+                <p class="text-xl text-gray-600">Next-generation features coming to MenuCraft</p>
             </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Demo Preview -->
-                <div class="relative">
-                    <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-2xl font-bold text-gray-900">Pameer Restaurant</h3>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Live Demo</span>
-                        </div>
-                        
-                        <!-- Mock Menu Items -->
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
-                                <div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-400 rounded-lg flex items-center justify-center">
-                                    <span class="text-white text-2xl">🍛</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-semibold text-gray-900">Qabuli Palaw with Lamb</h4>
-                                    <p class="text-gray-600 text-sm">Afghanistan's royal rice dish...</p>
-                                    <span class="text-orange-500 font-bold">$27.99</span>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
-                                <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-teal-400 rounded-lg flex items-center justify-center">
-                                    <span class="text-white text-2xl">🍢</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-semibold text-gray-900">Tikka Lamb Kebab</h4>
-                                    <p class="text-gray-600 text-sm">Tender marinated lamb pieces...</p>
-                                    <span class="text-orange-500 font-bold">$27.99</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button onclick="openDemo()" class="w-full mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all font-semibold">
-                            🚀 Try Live Demo
-                        </button>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-green-600 text-xl">💬</span>
                     </div>
+                    <h3 class="font-bold text-gray-900 mb-2">WhatsApp Integration</h3>
+                    <p class="text-gray-600 text-sm">Customer lookup, order history, and direct chat integration</p>
                 </div>
                 
-                <!-- Demo Features -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Try These Features</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                                <span class="text-gray-700">Browse authentic Afghan menu with AI descriptions</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                                <span class="text-gray-700">Add items to cart and see real-time total</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                                <span class="text-gray-700">Try voice ordering: "I want spicy food for 4 people"</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                                <span class="text-gray-700">Complete checkout with phone verification</span>
-                            </div>
-                        </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-blue-600 text-xl">📱</span>
                     </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                        <h4 class="font-semibold text-blue-900 mb-2">🎯 Demo Credentials</h4>
-                        <p class="text-blue-700 text-sm">Use any phone number for OTP verification in demo mode. The system will auto-verify for testing.</p>
+                    <h3 class="font-bold text-gray-900 mb-2">Customer Mobile App</h3>
+                    <p class="text-gray-600 text-sm">Native mobile ordering app with push notifications</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-purple-600 text-xl">🚗</span>
                     </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Delivery Driver App</h3>
+                    <p class="text-gray-600 text-sm">GPS tracking, order assignment, and earnings tracking</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-orange-600 text-xl">📈</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Advanced Analytics</h3>
+                    <p class="text-gray-600 text-sm">Business intelligence, forecasting, and performance metrics</p>
                 </div>
             </div>
         </div>
@@ -449,418 +499,8 @@
     <section id="pricing" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Simple, Transparent
-                    <span class="gradient-text">Pricing</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Choose the perfect plan for your restaurant. All plans include AI features and unlimited orders.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-                    <p class="text-gray-600 mb-6">Perfect for small restaurants</p>
-                    <div class="text-4xl font-bold text-gray-900 mb-6">
-                        $29<span class="text-lg text-gray-500">/month</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Up to 50 menu items
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Basic AI features
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Order management
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Mobile PWA
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-xl hover:bg-gray-300 transition-colors font-semibold">
-                        Get Started
-                    </button>
-                </div>
-
-                <!-- Pro Plan (Featured) -->
-                <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-8 text-white hover-lift transform scale-105">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-2xl font-bold">Professional</h3>
-                        <span class="bg-white text-orange-500 px-3 py-1 rounded-full text-sm font-bold">Popular</span>
-                    </div>
-                    <p class="text-orange-100 mb-6">Best for growing restaurants</p>
-                    <div class="text-4xl font-bold mb-6">
-                        $79<span class="text-lg text-orange-200">/month</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-300 mr-3">✓</span>
-                            Priority support
-                        </li>
-                    </ul>
-                    <button class="w-full bg-white text-orange-500 py-3 rounded-xl hover:bg-gray-100 transition-colors font-semibold">
-                        Start Free Trial
-                    </button>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-                    <p class="text-gray-600 mb-6">For restaurant chains</p>
-                    <div class="text-4xl font-bold text-gray-900 mb-6">
-                        $199<span class="text-lg text-gray-500">/month</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Multi-location support
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            Custom AI training
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            White-label solution
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-green-500 mr-3">✓</span>
-                            24/7 dedicated support
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-xl hover:bg-gray-300 transition-colors font-semibold">
-                        Contact Sales
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Download Section -->
-    <section id="download" class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                    📱 Install MenuCraft App
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Get the App on
-                    <span class="gradient-text">Any Device</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Install MenuCraft as a Progressive Web App (PWA) for the best experience. Works like a native app with offline support and push notifications.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Installation Steps -->
-                <div class="space-y-8">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Easy Installation</h3>
-                    
-                    <!-- Mobile Installation -->
-                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-blue-500 text-xl">📱</span>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Mobile (iOS/Android)</h4>
-                                <ol class="text-gray-600 space-y-1 text-sm">
-                                    <li>1. Open the demo link in Safari/Chrome</li>
-                                    <li>2. Tap "Share" → "Add to Home Screen"</li>
-                                    <li>3. Tap "Add" to install the app</li>
-                                    <li>4. Find MenuCraft icon on your home screen</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Desktop Installation -->
-                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <span class="text-green-500 text-xl">💻</span>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Desktop (Chrome/Edge)</h4>
-                                <ol class="text-gray-600 space-y-1 text-sm">
-                                    <li>1. Open the demo in Chrome or Edge</li>
-                                    <li>2. Look for "Install" button in address bar</li>
-                                    <li>3. Click "Install" when prompted</li>
-                                    <li>4. App will open in its own window</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- QR Code -->
-                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">Quick Access</h4>
-                                <p class="text-gray-600 text-sm">Scan QR code to open demo instantly</p>
-                            </div>
-                            <div class="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center">
-                                <span class="text-gray-500 text-xs text-center">QR<br>Code</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- App Features -->
-                <div class="space-y-6">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-6">App Benefits</h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                                <span class="text-orange-500">⚡</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Lightning Fast</h4>
-                                <p class="text-gray-600 text-sm">Instant loading, works offline</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                                <span class="text-blue-500">🔔</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Push Notifications</h4>
-                                <p class="text-gray-600 text-sm">Get notified about order updates</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                                <span class="text-green-500">📦</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">No App Store</h4>
-                                <p class="text-gray-600 text-sm">Install directly from browser</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                                <span class="text-purple-500">🔄</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Auto Updates</h4>
-                                <p class="text-gray-600 text-sm">Always latest version automatically</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Download Button -->
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 text-white mt-8">
-                        <h4 class="text-xl font-bold mb-2">Ready to Install?</h4>
-                        <p class="text-purple-100 mb-4 text-sm">Try the app now and install if you love it!</p>
-                        <button onclick="openDemo()" class="w-full bg-white text-purple-500 py-3 rounded-xl hover:bg-gray-100 transition-all font-semibold">
-                            🚀 Open Demo & Install
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Supported Browsers -->
-            <div class="mt-16 text-center">
-                <h4 class="text-lg font-semibold text-gray-900 mb-4">Supported Browsers</h4>
-                <div class="flex justify-center items-center space-x-8 opacity-60">
-                    <div class="flex items-center space-x-2">
-                        <span class="text-2xl">🌏</span>
-                        <span class="text-sm text-gray-600">Chrome</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-2xl">🦊</span>
-                        <span class="text-sm text-gray-600">Firefox</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-2xl">🧭</span>
-                        <span class="text-sm text-gray-600">Safari</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-2xl">🌊</span>
-                        <span class="text-sm text-gray-600">Edge</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Native Mobile Apps Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                    📲 Native Mobile Apps
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Coming Soon to
-                    <span class="gradient-text">App Stores</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    While you can install our PWA today, we're also developing native iOS and Android apps with enhanced features and deeper system integration.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- App Store Preview -->
-                <div class="space-y-8">
-                    <!-- iOS App Store -->
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center">
-                                <span class="text-white text-2xl">🍎</span>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900">iOS App</h3>
-                                <p class="text-gray-600">Coming to App Store</p>
-                            </div>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Native iOS performance and design
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Apple Pay integration
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Siri voice ordering shortcuts
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                iOS 17+ features support
-                            </div>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-xl font-semibold opacity-60 cursor-not-allowed">
-                            🚧 Coming Q2 2024
-                        </button>
-                    </div>
-
-                    <!-- Android Play Store -->
-                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
-                                <span class="text-white text-2xl">🤖</span>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900">Android App</h3>
-                                <p class="text-gray-600">Coming to Play Store</p>
-                            </div>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Material Design 3 interface
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Google Pay & UPI integration
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Google Assistant integration
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <span class="text-green-500 mr-3">✓</span>
-                                Android 14+ adaptive features
-                            </div>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-semibold opacity-60 cursor-not-allowed">
-                            🚧 Coming Q2 2024
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Native App Benefits -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Why Native Apps?</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <span class="text-purple-500 text-xl">⚡</span>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Enhanced Performance</h4>
-                                    <p class="text-gray-600">Native code execution for faster loading and smoother animations.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <span class="text-blue-500 text-xl">💳</span>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Payment Integration</h4>
-                                    <p class="text-gray-600">Seamless Apple Pay, Google Pay, and regional payment methods.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <span class="text-red-500 text-xl">🎯</span>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Platform Features</h4>
-                                    <p class="text-gray-600">Deep integration with Siri, Google Assistant, and platform-specific features.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <span class="text-yellow-500 text-xl">🔔</span>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Rich Notifications</h4>
-                                    <p class="text-gray-600">Advanced notification features with actions, images, and interactive elements.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Notify Me -->
-                    <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white">
-                        <h4 class="text-2xl font-bold mb-4">Get Notified When Apps Launch</h4>
-                        <p class="text-orange-100 mb-6">Be the first to know when our native apps are available on App Store and Play Store.</p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
-                            <button class="bg-white text-orange-500 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold whitespace-nowrap">
-                                Notify Me
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Development Services Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-slate-100 text-slate-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                    🛠️ Custom Development Services
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Need a Custom
-                    <span class="gradient-text">Restaurant App?</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Get your own branded restaurant app built with the same cutting-edge technology as MenuCraft. Complete solution from design to deployment.
-                </p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Choose Your Package</h2>
+                <p class="text-xl text-gray-600">Complete solution from design to deployment</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -872,80 +512,88 @@
                             <h3 class="text-2xl font-bold text-gray-900">Basic Package</h3>
                             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Most Popular</span>
                         </div>
-                        <div class="text-3xl font-bold text-gray-900 mb-4">$2,999</div>
-                        <p class="text-gray-600 mb-6">Perfect for single restaurant or small chain</p>
+                        <div class="text-3xl font-bold text-gray-900 mb-4">$4,999</div>
+                        <p class="text-gray-600 mb-6">Complete restaurant management solution</p>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Custom PWA (Progressive Web App)
+                                Customer Web Ordering Platform
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Menu management system
+                                Admin Dashboard (Web)
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Order management dashboard
+                                Restaurant Mobile Admin App
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Payment integration (Stripe/PayPal)
+                                Firebase Real-time Backend
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Push notifications
+                                Push Notifications
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                Mobile responsive design
+                                Order Management System
                             </li>
                             <li class="flex items-center text-gray-700">
                                 <span class="text-green-500 mr-3">✓</span>
-                                30 days support
+                                Real-time Order Tracking
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-green-500 mr-3">✓</span>
+                                30 days support & training
                             </li>
                         </ul>
-                        <div class="text-sm text-gray-500 mb-4">⏱️ Delivery: 14-21 days</div>
+                        <div class="text-sm text-blue-600 mb-4">⏱️ Delivery: 7-14 days</div>
                         <button onclick="contactSales()" class="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition-colors font-semibold">
-                            Order Now
+                            Get Started
                         </button>
                     </div>
 
                     <!-- Premium Package -->
                     <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-8 text-white hover-lift transform scale-105">
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center justify-between mb-2">
                             <h3 class="text-2xl font-bold">Premium Package</h3>
-                            <span class="bg-white text-orange-500 px-3 py-1 rounded-full text-sm font-bold">Recommended</span>
+                            <span class="bg-white text-orange-500 px-3 py-1 rounded-full text-sm font-bold">Best Value</span>
                         </div>
-                        <div class="text-3xl font-bold mb-4">$4,999</div>
-                        <p class="text-orange-100 mb-6">Complete solution with AI features</p>
-                        <ul class="space-y-3 mb-6">
+                        <p class="text-orange-100 mb-6">Complete ecosystem with mobile apps</p>
+                        <div class="text-4xl font-bold mb-6">$7,999</div>
+                        <ul class="space-y-4 mb-8">
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                Everything in Basic Package
+                                <strong>Everything in Basic +</strong>
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                <strong>AI-powered recommendations</strong>
+                                Customer Mobile App (React Native)
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                <strong>Voice ordering system</strong>
+                                Delivery Driver App
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                <strong>Smart menu descriptions</strong>
+                                WhatsApp Integration (All Platforms)
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                Analytics dashboard
+                                Customer History & Analytics
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                Multi-language support
+                                Advanced Reporting Dashboard
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
-                                Advanced admin panel
+                                Inventory Management System
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-green-300 mr-3">✓</span>
+                                Multi-location Support
                             </li>
                             <li class="flex items-center">
                                 <span class="text-green-300 mr-3">✓</span>
@@ -1008,43 +656,31 @@
 
                     <!-- Technologies Used -->
                     <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">🛠️ Technologies We Use</h4>
+                        <h4 class="text-lg font-bold text-gray-900 mb-4">Technologies Used</h4>
                         <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div class="space-y-2">
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
-                                    React.js / Next.js
-                                </div>
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                                    Firebase / Supabase
-                                </div>
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                    Tailwind CSS
-                                </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-blue-500">⚛️</span>
+                                <span>React Native</span>
                             </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                                    OpenAI API
-                                </div>
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
-                                    Stripe/PayPal
-                                </div>
-                                <div class="flex items-center text-gray-700">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
-                                    PWA Standards
-                                </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-orange-500">🔥</span>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-green-500">🌐</span>
+                                <span>Progressive Web App</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-purple-500">⚡</span>
+                                <span>Real-time Updates</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Contact CTA -->
-                    <div class="bg-gradient-to-r from-slate-700 to-gray-800 rounded-2xl p-6 text-white">
-                        <h4 class="text-xl font-bold mb-2">Need Something Custom?</h4>
-                        <p class="text-gray-300 mb-4 text-sm">Have specific requirements? Let's discuss your project and create a custom solution.</p>
+                    <!-- Custom Quote -->
+                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Need Something Custom?</h4>
+                        <p class="text-gray-600 mb-4">Let's discuss your project and create a custom solution.</p>
                         <button onclick="contactSales()" class="bg-white text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-sm">
                             💬 Free Consultation
                         </button>
@@ -1052,279 +688,299 @@
                 </div>
             </div>
 
-            <!-- Process Timeline -->
-            <div class="mt-16 mobile-hidden">
-                <h3 class="text-3xl font-bold text-gray-900 text-center mb-12">Development Process</h3>
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
-                        <h4 class="font-semibold mb-2">Discovery</h4>
-                        <p class="text-gray-600 text-sm">Requirements gathering and planning</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
-                        <h4 class="font-semibold mb-2">Design</h4>
-                        <p class="text-gray-600 text-sm">UI/UX design and prototyping</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
-                        <h4 class="font-semibold mb-2">Development</h4>
-                        <p class="text-gray-600 text-sm">Coding and feature implementation</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
-                        <h4 class="font-semibold mb-2">Launch</h4>
-                        <p class="text-gray-600 text-sm">Testing, deployment, and training</p>
-                    </div>
-                </div>
-            </div>
+<!-- Process Timeline -->
+           <div class="mt-16 mobile-hidden">
+               <h3 class="text-3xl font-bold text-gray-900 text-center mb-12">Development Process</h3>
+               <div class="grid md:grid-cols-4 gap-8">
+                   <div class="text-center">
+                       <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                       <h4 class="font-semibold mb-2">Discovery</h4>
+                       <p class="text-gray-600 text-sm">Requirements gathering and planning</p>
+                   </div>
+                   <div class="text-center">
+                       <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                       <h4 class="font-semibold mb-2">Design</h4>
+                       <p class="text-gray-600 text-sm">UI/UX design and prototyping</p>
+                   </div>
+                   <div class="text-center">
+                       <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                       <h4 class="font-semibold mb-2">Development</h4>
+                       <p class="text-gray-600 text-sm">Coding and feature implementation</p>
+                   </div>
+                   <div class="text-center">
+                       <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                       <h4 class="font-semibold mb-2">Launch</h4>
+                       <p class="text-gray-600 text-sm">Testing, deployment, and training</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- CTA Section -->
+   <section class="py-20 bg-gradient-to-r from-orange-500 to-red-500">
+       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+           <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+               Ready to Launch Your Digital Restaurant?
+           </h2>
+           <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+               Join the digital revolution with MenuCraft's complete restaurant management solution. From customer ordering to admin dashboards - we've got you covered.
+           </p>
+           <div class="space-x-4">
+               <button onclick="contactSales()" class="bg-white text-orange-500 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-colors">
+                   🚀 Start Your Project
+               </button>
+               <button onclick="openDemo()" class="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-orange-500 transition-colors">
+                   📱 View Demo
+               </button>
+           </div>
+       </div>
+   </section>
+
+   <!-- Demo Section -->
+   <section id="demo" class="py-20 bg-gray-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="text-center mb-16">
+               <h2 class="text-4xl font-bold text-gray-900 mb-4">See MenuCraft in Action</h2>
+               <p class="text-xl text-gray-600">Experience our platform with live demos</p>
+           </div>
+           
+           <div class="grid md:grid-cols-3 gap-8">
+               <!-- Customer Demo -->
+               <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                   <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                       <span class="text-white text-2xl">🌐</span>
+                   </div>
+                   <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Customer Experience</h3>
+                   <p class="text-gray-600 mb-6 text-center">See how customers browse menu and place orders</p>
+                  <button onclick="window.open('https://food-menu-f6080.web.app/', '_blank')" class="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition-colors font-semibold"> View Customer Demo
+                   </button>
+               </div>
+               
+               <!-- Admin Demo -->
+               <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                   <div class="w-16 h-16 bg-orange-500 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                       <span class="text-white text-2xl">📊</span>
+                   </div>
+                   <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Admin Dashboard</h3>
+                   <p class="text-gray-600 mb-6 text-center">Manage orders, menu, and restaurant operations</p>
+
+                   <button onclick="window.open('https://food-menu-f6080.web.app/admin.html', '_blank')" class="w-full bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition-colors font-semibold">
+                       View Admin Demo
+                   </button>
+               </div>
+               
+               <!-- Mobile Demo -->
+               <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                   <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                       <span class="text-white text-2xl">📱</span>
+                   </div>
+                   <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Mobile Admin App</h3>
+                   <p class="text-gray-600 mb-6 text-center">React Native app for restaurant staff for order managment</p>
+                   <button onclick="contactSales()" class="w-full bg-green-500 text-white py-3 rounded-xl hover:bg-green-600 transition-colors font-semibold">
+                       Request Mobile Demo
+                   </button>
+               </div>
+           </div>
+       </div>
+   </section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-600">Contact us for a free consultation and custom quote</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-orange-500 to-red-500">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Transform Your Restaurant?
-            </h2>
-            <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-                Join thousands of restaurants already using MenuCraft to deliver exceptional digital dining experiences.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openDemo()" class="bg-white text-orange-500 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all hover-lift font-semibold">
-                    🚀 Try Free Demo
-                </button>
-                <button onclick="contactSales()" class="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-orange-500 transition-all hover-lift font-semibold">
-                    📞 Contact Sales
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Company Info -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">🍽️</span>
-                        </div>
-                        <span class="text-2xl font-bold text-white">MenuCraft</span>
-                    </div>
-                    <p class="text-gray-400 mb-6 max-w-md">
-                        The future of restaurant technology. AI-powered digital dining experiences that delight customers and empower restaurant owners.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">Facebook</span>📘
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">Twitter</span>🐦
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">Instagram</span>📷
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">LinkedIn</span>💼
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
+        
+        <!-- Contact Form -->
+        <div class="bg-gray-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Send us a Message</h3>
+            <form class="space-y-6">
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Product</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#ai-powered" class="hover:text-white transition-colors">AI Features</a></li>
-                        <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
-                        <li><a href="#demo" class="hover:text-white transition-colors">Demo</a></li>
-                    </ul>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Restaurant Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="Your restaurant name">
                 </div>
-
-                <!-- Support -->
-                <div>
-                    <h3 class="text-white font-semibold mb-4">Support</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Status</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    © 2024 MenuCraft. All rights reserved.
-                </p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Demo functions
-        function openDemo() {
-            window.open('https://food-menu-f6080.web.app/', '_blank');
-        }
-
-        function playVideo() {
-            alert('🎬 Video demo coming soon! For now, try the live demo.');
-            openDemo();
-        }
-
-        function contactSales() {
-            alert('📞 Contact: sales@menucraft.com or call +1-234-567-8900');
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('shadow-lg');
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                nav.classList.remove('shadow-lg');
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(section);
-            });
-
-            // Add loading animation
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease';
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Performance optimization - Lazy load background images
-        function loadBackgroundImages() {
-            const elements = document.querySelectorAll('[data-bg]');
-            elements.forEach(el => {
-                const bg = el.getAttribute('data-bg');
-                el.style.backgroundImage = `url(${bg})`;
-                el.removeAttribute('data-bg');
-            });
-        }
-
-        // Call on page load
-        window.addEventListener('load', loadBackgroundImages);
-
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add hover effects to cards
-            const cards = document.querySelectorAll('.hover-lift');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                    this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
-                });
                 
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '';
-                });
-            });
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                        <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="john@restaurant.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Package Interest</label>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                        <option>Basic Package ($4,999)</option>
+                        <option>Premium Package ($7,999)</option>
+                        <option>Custom Solution</option>
+                        <option>Just exploring options</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="Tell us about your restaurant and requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
 
-            // Add click ripple effect to buttons
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.cssText = `
-                        position: absolute;
-                        width: ${size}px;
-                        height: ${size}px;
-                        left: ${x}px;
-                        top: ${y}px;
-                        background: rgba(255,255,255,0.3);
-                        border-radius: 50%;
-                        transform: scale(0);
-                        animation: ripple 0.6s ease-out;
-                        pointer-events: none;
-                    `;
-                    
-                    this.style.position = 'relative';
-                    this.style.overflow = 'hidden';
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => ripple.remove(), 600);
-                });
-            });
-        });
+   <!-- Footer -->
+   <footer class="bg-gray-900 text-white py-12">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="grid md:grid-cols-4 gap-8">
+               <div class="md:col-span-2">
+                   <div class="flex items-center space-x-3 mb-4">
+                       <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                           <span class="text-white font-bold text-lg">🍽️</span>
+                       </div>
+                       <span class="text-2xl font-bold text-white">MenuCraft</span>
+                   </div>
+                   <p class="text-gray-400 mb-6 max-w-md">
+                       Transform your restaurant with our complete digital platform. From customer ordering to admin management - we've got you covered.
+                   </p>
+                   <div class="flex space-x-4">
+                       <button class="text-gray-400 hover:text-white transition-colors">📧</button>
+                       <button class="text-gray-400 hover:text-white transition-colors">💬</button>
+                       <button class="text-gray-400 hover:text-white transition-colors">📱</button>
+                   </div>
+               </div>
+               
+               <div>
+                   <h3 class="font-bold mb-4">Platform</h3>
+                   <ul class="space-y-2 text-gray-400">
+                       <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                       <li><a href="#platform" class="hover:text-white transition-colors">Technology</a></li>
+                       <li><a href="#demo" class="hover:text-white transition-colors">Demo</a></li>
+                       <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                   </ul>
+               </div>
+               
+               <div>
+                   <h3 class="font-bold mb-4">Support</h3>
+                   <ul class="space-y-2 text-gray-400">
+                       <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                       <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                       <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
+                       <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                   </ul>
+               </div>
+           </div>
+           
+           <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+               <p>&copy; 2025 MenuCraft. All rights reserved. Built with ❤️ for restaurants worldwide.</p>
+           </div>
+       </div>
+   </footer>
 
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+   <!-- JavaScript -->
+   <script>
+       // Mobile menu toggle
+       function toggleMobileMenu() {
+           const menu = document.getElementById('mobileMenu');
+           menu.classList.toggle('hidden');
+       }
+
+       // Contact sales function
+       function contactSales() {
+           window.open('mailto:hello@menucraft.com?subject=MenuCraft Inquiry&body=Hi, I\'m interested in MenuCraft for my restaurant. Please contact me.', '_blank');
+       }
+
+       // Open demo function
+       function openDemo() {
+           document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+       }
+
+       // Smooth scrolling for navigation links
+       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+           anchor.addEventListener('click', function (e) {
+               e.preventDefault();
+               const target = document.querySelector(this.getAttribute('href'));
+               if (target) {
+                   target.scrollIntoView({ behavior: 'smooth' });
+               }
+           });
+       });
+
+       // Intersection Observer for animations
+       const observerOptions = {
+           threshold: 0.1,
+           rootMargin: '0px 0px -50px 0px'
+       };
+
+       const observer = new IntersectionObserver((entries) => {
+           entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                   entry.target.style.opacity = '1';
+                   entry.target.style.transform = 'translateY(0)';
+               }
+           });
+       }, observerOptions);
+
+       // Observe all sections for animation
+       document.addEventListener('DOMContentLoaded', function() {
+           const sections = document.querySelectorAll('section');
+           sections.forEach(section => {
+               section.style.opacity = '0';
+               section.style.transform = 'translateY(30px)';
+               section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+               observer.observe(section);
+           });
+
+           // Add loading animation
+           document.body.style.opacity = '0';
+           setTimeout(() => {
+               document.body.style.transition = 'opacity 0.5s ease';
+               document.body.style.opacity = '1';
+           }, 100);
+       });
+
+       // Performance optimization - Lazy load background images
+       function loadBackgroundImages() {
+           const elements = document.querySelectorAll('[data-bg]');
+           elements.forEach(el => {
+               const bg = el.getAttribute('data-bg');
+               el.style.backgroundImage = `url(${bg})`;
+               el.removeAttribute('data-bg');
+           });
+       }
+
+       // Call on page load
+       window.addEventListener('load', loadBackgroundImages);
+
+       // Add some interactive effects
+       document.addEventListener('DOMContentLoaded', function() {
+           // Add hover effects to cards
+           const cards = document.querySelectorAll('.hover-lift');
+           cards.forEach(card => {
+               card.addEventListener('mouseenter', function() {
+                   this.style.transform = 'translateY(-10px)';
+                   this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+               });
+               
+               card.addEventListener('mouseleave', function() {
+                   this.style.transform = 'translateY(0)';
+                   this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+               });
+           });
+       });
+   </script>
+
 </body>
+</html>
